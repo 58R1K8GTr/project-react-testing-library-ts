@@ -3,29 +3,6 @@ import App from '../App';
 import renderWithRouter from '../renderWithRouter';
 import pokemonList from '../data';
 
-// o código abaixo era para rotacionar os nomes dos pokemons, nem testei
-
-// let count = -1;
-
-// function rotation(reset = false) {
-//   if (reset) {
-//     count = -1;
-//   }
-//   const pokemonList = [
-//     'Pikachu',
-//     'Charmander',
-//     'Caterpie',
-//     'Ekans',
-//     'Alakazam',
-//     'Mew',
-//     'Rapidash',
-//     'Snorlax',
-//     'Dragonair',
-//   ];
-//   count = (count + 1) % (pokemonList.length - 1);
-//   return pokemonList[count];
-// }
-
 const pokemonListNames = [
   'Charmander',
   'Caterpie',
