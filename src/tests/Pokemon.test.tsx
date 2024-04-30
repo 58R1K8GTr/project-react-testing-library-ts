@@ -5,10 +5,11 @@ import renderWithRouter from '../renderWithRouter';
 const testIdPokemonName = 'pokemon-name';
 const testIdPokemonType = 'pokemon-type';
 const testIdPokemonWeight = 'pokemon-weight';
+const route = '/pokemon/25';
 
 describe('testando o componente Pokemon', () => {
   test('Teste se é renderizado um card com as informações de determinado Pokémon', () => {
-    renderWithRouter(<App />, { route: '/pokemon/25' });
+    renderWithRouter(<App />, { route });
     const pokemonName = screen.getByTestId(testIdPokemonName);
     expect(pokemonName).toBeVisible();
     expect(pokemonName).toHaveTextContent('Pikachu');
@@ -25,7 +26,7 @@ describe('testando o componente Pokemon', () => {
   test('testando se ao clicar no link de navegação do pokémon, é feito o redirecionamento da aplicação', () => {
     renderWithRouter(<App />);
     const linkDetails = screen.getByRole('link', { name: /more details/i });
-    expect(linkDetails.getAttribute('href')).toBe('/pokemon/25');
+    expect(linkDetails.getAttribute('href')).toBe(route);
   });
   test('testando se ao clicar no link more details a página é redirecionada', async () => {
     const { user } = renderWithRouter(<App />);
@@ -38,7 +39,7 @@ describe('testando o componente Pokemon', () => {
     const { user } = renderWithRouter(<App />);
     const linkDetails = screen.getByRole('link', { name: /more details/i });
     await user.click(linkDetails);
-    expect(window.location.pathname).toBe('/pokemon/25');
+    expect(window.location.pathname).toBe(route);
   });
   test('testando se existe uma estrela nos pokémons favoritados', async () => {
     const { user } = renderWithRouter(<App />);
